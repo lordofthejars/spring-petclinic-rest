@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: petclinic-rest
+  name: petclinic-rest
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: petclinic-rest
+  template:
+    metadata:
+      labels:
+        app: petclinic-rest
+    spec:
+      containers:
+      - name: petclinic-rest
+        image: quay.io/lordofthejars/petclinic-rest:mono
+        imagePullPolicy: Always
+        ports:
+          - containerPort: 9966
